@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #191919;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 75%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+select {
+  background-color: #d20a32;
+  padding: 0 1em 0 0;
+  margin: 30px;
+  width: 220px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-family: inherit;
+  color: #fff;
+}
+
+.page-list .articles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.cardGame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  width: 300px;
+  color: #fff;
+}
+.cardGame img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+.cardGame h1 {
+  margin: 15px 0;
+}
+.cardGame .platLogo {
+  display: flex;
+}
+.cardGame .displayInfo {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  font-size: 20px;
+  color: #fff;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateX(50px);
+  transition-duration: 1.2s;
+}
+.cardGame:hover > .displayInfo {
+  opacity: 2;
+  transform: translateX(0);
+  transition-duration: 1.2s;
+}
+.cardGame:hover > img {
+  opacity: 1;
+  transition-duration: 1.2s;
+}
+
+.navbar {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.links a {
+  color: #d20a32;
+  text-decoration: none;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.PlayStation {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/efe97f94b8021d7ce5e8b92bdb4237cc.svg);
+  background-repeat: no-repeat;
+}
+
+.Nintendo {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/96438e0fb90b0c00220572d7d5b608cc.svg);
+  background-repeat: no-repeat;
+}
+
+.PC {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/65e5f871b7c679c57ad2f301cdb1ad3a.svg);
+  background-repeat: no-repeat;
+}
+
+.Xbox {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/c44b5578fcccee020fd9a5e4b7292bca.svg);
+  background-repeat: no-repeat;
+}
+
+.Linux {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/9a317a7739e9a5267703a9307f8abacb.svg);
+  background-repeat: no-repeat;
+}
+
+.Android {
+  height: 50px;
+  width: 50px;
+  background-image: url(images/1aa15eb6e63595f0c01e29fd765f168d.svg);
+  background-repeat: no-repeat;
+}
