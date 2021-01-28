@@ -73,6 +73,7 @@ const PageList = (argument = "") => {
               <button class='btnMoreContent'>More Content</button>
           `
           
+
           document.querySelector('.btnMoreContent').addEventListener('click', () => moreContent());
           document.querySelector(".page-list .articles").innerHTML = articles;
 
