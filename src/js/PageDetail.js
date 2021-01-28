@@ -1,5 +1,6 @@
 const PageDetail = (argument) => {
   const preparePage = () => {
+    document.querySelector(".welcome").innerHTML = '';
     document.querySelector(".displayPlatformSelect").innerHTML = '';
     document.querySelector(".addMoreContent").innerHTML = '';
     let cleanedArgument = argument.replace(/\s+/g, "-");
