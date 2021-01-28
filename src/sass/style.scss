@@ -247,6 +247,10 @@ select {
   background-size: cover;
 }
 
+
+//******************************
+// PageDetail content
+//******************************
 $titleColor: #d20a32;
 .content {
   color: #fff;
@@ -255,7 +259,7 @@ $titleColor: #d20a32;
   align-items: flex-start;
   margin-top: 50px;
   #description {
-    margin: 18px 0;
+    margin: 20px 0;
   }
   span {
     font-weight: bold;
@@ -263,6 +267,7 @@ $titleColor: #d20a32;
   }
   h1 {
     font-size: 50px;
+    margin-top: 50px;
   }
 
   .package {
@@ -302,7 +307,22 @@ $titleColor: #d20a32;
       height: 20px;
       font-size: 30px;
     }
-
+  }
+  .screenShot {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    img {
+      margin: 20px 0;
+      height: 300px;
+      width: 600px;
+      object-fit: cover;
+    }
+  }
+  #screenshottitle {
+    color: $titleColor;
   }
 }
 video {

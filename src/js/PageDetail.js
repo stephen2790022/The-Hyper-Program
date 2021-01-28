@@ -22,10 +22,12 @@ const PageDetail = (argument) => {
           response.publishers.forEach((publish) => {
             publisher += `${publish.name}`
           });
-          let developer = '';
+          let developerName = '';
           response.developers.forEach((developer) => {
-            developer += `${developer.name} `
-          })
+            console.log(developer.name+ '********************')
+            developerName += `${developer.name} `
+          });
+          
           let genre = '';
           response.genres.forEach((genres) => {
             genre += `${genres.name} `
@@ -35,15 +37,24 @@ const PageDetail = (argument) => {
             tags += `${tag.name} `
           })
           let stores = '';
-          //console.log(response.stores[0].url)
-          
-          
             response.stores.forEach((store) => {
               stores += `<a href='${store.url}'><p>${store.store.name}</p></a><br>`
             })
-  
-            let video = response.clip.clip;
-            console.log(video)
+
+          let video = response.clip.clip;
+            let slug
+          fetch(`https://api.rawg.io/api/games/${response.slug}/screenshots`)
+            .then((response) => response.json())
+            .then((response) => {
+              console.log(response)
+              response.results.forEach((screenshot) => {
+                document.querySelector('.screenShot').innerHTML += `
+                  <img src="${screenshot.image}">
+                `
+              })
+            })
+
+            console.log(response.slug)
 
           document.querySelector(".addJumbotron").innerHTML = `
            <div class="jumbotron" style="background-image: url('${background}')">
@@ -51,11 +62,11 @@ const PageDetail = (argument) => {
           document.querySelector("#pageContent").innerHTML = `
           </div>
           <section class="content">
-            <h1>${name}</h1>
-            <p id='description'><span>Resum:</span><br>${description}</p>
+            <h1 id='description'>${name},</h1>
+            <p ><span>Resum:</span><br>${description}</p>
             <div class="package">
               <p><span>Released:</span><br>${released}</p>
-              <p><span>Developer:</span><br>${developer}</p>
+              <p><span>Developer:</span><br>${developerName}</p>
               <p><span>Platform:</span><br>${platform}</p>
               <p><span>Publisher:</span><br>${publisher}</p>
             </div>
@@ -64,19 +75,19 @@ const PageDetail = (argument) => {
               <p class='tags'><span>Tags:</span><br>${tags}</p>
             </div>
             <div class="store">
-              <h1>Buy</h1>
+              <h1>BUY</h1>
               <p>${stores} </p>
             </div>
             <div class="video">
-              <h1>Trailer</h1>
+              <h1>TRAILER</h1>
               <video src="${video}" controls>
                 Your browser does not support the video tag.
               </video>
             </div>
+            <h1 id='screenshottitle'>SCREENSHOTS</h1>
+            <div class='screenShot'>
+            </div>
           </section>
-          <div class='screenShot'>
-            
-          </div>
           `
         });
     };

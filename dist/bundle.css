@@ -210,7 +210,7 @@ select {
   margin-top: 50px;
 }
 .content #description {
-  margin: 18px 0;
+  margin: 20px 0;
 }
 .content span {
   font-weight: bold;
@@ -218,6 +218,7 @@ select {
 }
 .content h1 {
   font-size: 50px;
+  margin-top: 50px;
 }
 .content .package {
   width: 100%;
@@ -253,6 +254,22 @@ select {
   width: 100%;
   height: 20px;
   font-size: 30px;
+}
+.content .screenShot {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.content .screenShot img {
+  margin: 20px 0;
+  height: 300px;
+  width: 600px;
+  object-fit: cover;
+}
+.content #screenshottitle {
+  color: #d20a32;
 }
 
 video {
