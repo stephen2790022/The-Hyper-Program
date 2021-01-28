@@ -2,6 +2,7 @@ let nextPage;
 let count = 0;
 
 const PageList = (argument = "") => {
+  document.querySelector(".addJumbotron").innerHTML= ''
   const preparePage = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
     let articles = "";

@@ -13,38 +13,54 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 75%;
+.container {
+  width: 90%;
   margin: 0 auto;
 }
+
 a {
   text-decoration: none;
-}*
-//******************************
+}
+
+* //******************************
+
 //      SearchBar
 //******************************
 .wrapper {
-  position: relative;
+  border: 1px solid #fff;
+  border-radius: 20px;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   min-width: 100px;
 }
-.form img {
-  position: absolute;
+
+.search-icon {
   background-image: url('../images/search.svg');
-  height: 10px;
-    top: 6px;
-    left: 8px;
-    width: 14px;
+  height: 20px;
+  width: 20px;
 }
+
+.btn {
+  border: none;
+  margin: 0 10px;
+
+}
+
+.btn:focus {
+  outline: none;
+
+}
+
 #searchBar {
-  border: 1px solid white;
+  border: none;
   color: #fff;
-    border-radius: 20px;
-    height: 40px;
-    width: 100%;
-    padding: 2px 23px 2px 30px;
-    outline: 0;
-    background-color:black;
+  border-radius: 0 20px 20px 0;
+  height: 40px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: black;
 }
 
 //******************************
@@ -85,51 +101,57 @@ select {
   align-items: flex-start;
   width: 300px;
   color: #fff;
-    img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-    }
-    h1 {
-      margin-top: 8px;
-      padding:10px;
-      font-size: 25px;
-    }
-    .platLogo {
-      display: flex;
-      margin-top: 5px;
-      padding:10px;
-    }
-    .displayInfo {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding:10px;
-      width: 300px;
-      height: 200px;
-      font-size: 25px;
-      color: #fff;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      transform: translateY(-50px);
-      transition-duration: 1.2s;
-      p {
-        margin: 10px 0
-      }
-    }
-    &:hover > .displayInfo {
-      opacity: 2;
-      transform: translateY(0);
-      transition-duration: 1.2s;
-    }
 
-    &:hover > img {
-      opacity: 0.2;
-      transition-duration: 1.2s;
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  h1 {
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 25px;
+  }
+
+  .platLogo {
+    display: flex;
+    margin-top: 5px;
+    padding: 10px;
+  }
+
+  .displayInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    font-size: 25px;
+    color: #fff;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition-duration: 1.2s;
+
+    p {
+      margin: 5px 0;
     }
+  }
+
+  &:hover>.displayInfo {
+    opacity: 2;
+    transform: translateY(0);
+    transition-duration: 1.2s;
+  }
+
+  &:hover>img {
+    opacity: 0.2;
+    transition-duration: 1.2s;
+  }
 }
 
 //******************************
@@ -140,11 +162,11 @@ select {
   color: #fff;
   height: 50px;
   width: 150px;
-  padding:10;
+  padding: 10;
   margin: 20px 0;
   border-radius: 5px;
   font-size: 18px;
-  
+
 }
 
 //******************************
@@ -152,12 +174,14 @@ select {
 //******************************
 
 .navbar {
-  height: 100px;
+  width: 75%;
+  margin: 0 auto;
+  height: 150px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
+
 }
 
 
@@ -165,7 +189,7 @@ select {
   a {
     color: #d20a32;
     text-decoration: none;
-    font-size: 45px;
+    font-size: 50px;
     font-weight: bold;
   }
 }
@@ -180,33 +204,107 @@ select {
   background-image: url('../images/ps4.svg');
   background-repeat: no-repeat;
 }
+
 .Nintendo {
   height: 50px;
   width: 50px;
   background-image: url('../images/switch.svg');
   background-repeat: no-repeat;
 }
+
 .PC {
   height: 50px;
   width: 50px;
   background-image: url('../images/windows.svg');
   background-repeat: no-repeat;
 }
+
 .Xbox {
   height: 50px;
   width: 50px;
   background-image: url('../images/xbox.svg');
   background-repeat: no-repeat;
 }
+
 .Linux {
   height: 50px;
   width: 50px;
   background-image: url('../images/linux.svg');
   background-repeat: no-repeat;
 }
+
 .Android {
   height: 50px;
   width: 50px;
   background-image: url('../images/mobile.svg');
   background-repeat: no-repeat;
+}
+
+.jumbotron {
+  height: 750px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+$titleColor: #d20a32;
+.content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+  #description {
+    margin: 18px 0;
+  }
+  span {
+    font-weight: bold;
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+
+  .package {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    p {
+      width: 25%;
+    }
+  }
+  .morePackage {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    p {
+      width: 50%;
+    }
+  }
+
+  .video {
+    width: 100%;
+    h1 {
+      color: $titleColor;
+      margin: 30px 0;
+    }
+  }
+  .store {
+    h1 {
+      color: $titleColor;
+    }
+    p {
+      color:#fff;
+      text-decoration: underline 2px $titleColor;
+      width: 100%;
+      height: 20px;
+      font-size: 30px;
+    }
+
+  }
+}
+video {
+  width: 100%;
 }

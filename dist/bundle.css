@@ -10,8 +10,8 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 75%;
+.container {
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -20,24 +20,33 @@ a {
 }
 
 * .wrapper {
-  position: relative;
+  border: 1px solid #fff;
+  border-radius: 20px;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   min-width: 100px;
 }
 
-.form img {
-  position: absolute;
+.search-icon {
   background-image: url(images/48aa76f4f39e7a082a9b4da8104176aa.svg);
-  height: 10px;
-  top: 6px;
-  left: 8px;
-  width: 14px;
+  height: 20px;
+  width: 20px;
+}
+
+.btn {
+  border: none;
+  margin: 0 10px;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 #searchBar {
-  border: 1px solid white;
+  border: none;
   color: #fff;
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0;
   height: 40px;
   width: 100%;
   padding: 2px 23px 2px 30px;
@@ -104,7 +113,7 @@ select {
   transition-duration: 1.2s;
 }
 .cardGame .displayInfo p {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 .cardGame:hover > .displayInfo {
   opacity: 2;
@@ -128,7 +137,9 @@ select {
 }
 
 .navbar {
-  height: 100px;
+  width: 75%;
+  margin: 0 auto;
+  height: 150px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -138,7 +149,7 @@ select {
 .links a {
   color: #d20a32;
   text-decoration: none;
-  font-size: 45px;
+  font-size: 50px;
   font-weight: bold;
 }
 
@@ -182,4 +193,68 @@ select {
   width: 50px;
   background-image: url(images/1aa15eb6e63595f0c01e29fd765f168d.svg);
   background-repeat: no-repeat;
+}
+
+.jumbotron {
+  height: 750px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+.content #description {
+  margin: 18px 0;
+}
+.content span {
+  font-weight: bold;
+  font-size: 25px;
+}
+.content h1 {
+  font-size: 50px;
+}
+.content .package {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.content .package p {
+  width: 25%;
+}
+.content .morePackage {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.content .morePackage p {
+  width: 50%;
+}
+.content .video {
+  width: 100%;
+}
+.content .video h1 {
+  color: #d20a32;
+  margin: 30px 0;
+}
+.content .store h1 {
+  color: #d20a32;
+}
+.content .store p {
+  color: #fff;
+  text-decoration: underline 2px #d20a32;
+  width: 100%;
+  height: 20px;
+  font-size: 30px;
+}
+
+video {
+  width: 100%;
 }
