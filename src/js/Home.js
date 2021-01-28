@@ -8,7 +8,7 @@ const Home = (argument = "") => {
         if (argument) {
           finalURL = url + "?search=" + argument;
         }
-  
+
         fetch(`${finalURL}`)
           .then((response) => response.json())
           .then((response) => {
@@ -25,20 +25,20 @@ const Home = (argument = "") => {
             document.querySelector(".page-list .articles").innerHTML = articles;
           });
       };
-  
+
       fetchList("https://api.rawg.io/api/games", cleanedArgument);
     };
-  
+
     const render = () => {
       pageContent.innerHTML = `
         <section class="page-list">
           <div class="articles">...loading</div>
         </section>
       `;
-  
+
       preparePage();
     };
-  
+
     render();
   };
   PageList(argument = "")
