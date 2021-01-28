@@ -32,7 +32,7 @@ const PageList = (argument = "") => {
                 <div class='displayInfo'>
                   <p>Genre: ${genre}</p>
                   <p>Released: ${article.released}</p>
-                  <p>Rating: ${article.rating}</p>
+                  <p>Rating: ${article.rating}/5 - ${article.ratings_count} votes</p>
                 </div>
                 <img class="fit-picture"src="${article.background_image}"
                 alt="Grapefruit slice atop a pile of other slices">
@@ -59,7 +59,7 @@ const PageList = (argument = "") => {
           `
           document.querySelector('.platformSelection').addEventListener('change', (event) => platformSelect(event));
           document.querySelector(".addMoreContent").innerHTML = `
-              <button class='btnMoreContent'>See more content</button>
+              <button class='btnMoreContent'>More Content</button>
           `
           document.querySelector('.btnMoreContent').addEventListener('click', () => moreContent());
           document.querySelector(".page-list .articles").innerHTML = articles;
@@ -87,14 +87,28 @@ const moreContent = () => {
     .then((response) => {
       nextPage = response.next;
       response.results.forEach((article) => {
+        let logo = '';
+        article.parent_platforms.forEach((support) => {
+         logo +=  `<p class="${support.platform.name}"></p>`
+        });
+        let genre = '';
+        article.genres.forEach((genres) => {
+          genre = genres.name
+        });
         document.querySelector(".page-list .articles").innerHTML += `
         <a href = "#pagedetail/${article.id}" id='linkCard'>
-          <div class="cardGame">
-            <img class="fit-picture"src="${article.background_image}"
-            alt="Grapefruit slice atop a pile of other slices">
-            <h1>${article.name}</h1>
+        <div class="cardGame">
+          <div class='displayInfo'>
+            <p>Genre: ${genre}</p>
+            <p>Released: ${article.released}</p>
+            <p>Rating: ${article.rating}/5 - ${article.ratings_count} votes</p>
           </div>
-        </a>
+          <img class="fit-picture"src="${article.background_image}"
+          alt="Grapefruit slice atop a pile of other slices">
+          <h1>${article.name}</h1>
+          <div class='platLogo'>${logo}</div>
+        </div>
+      </a>
             
           `;
       });
@@ -124,14 +138,28 @@ const platformSelect = (event) => {
       document.querySelector(".page-list .articles").innerHTML = ""
       nextPage = response.next;
       response.results.forEach((article) => {
+        let logo = '';
+        article.parent_platforms.forEach((support) => {
+         logo +=  `<p class="${support.platform.name}"></p>`
+        });
+        let genre = '';
+        article.genres.forEach((genres) => {
+          genre = genres.name
+        });
         document.querySelector(".page-list .articles").innerHTML += `
         <a href = "#pagedetail/${article.id}" id='linkCard'>
-          <div class="cardGame">
-            <img class="fit-picture"src="${article.background_image}"
-            alt="Grapefruit slice atop a pile of other slices">
-            <h1>${article.name}</h1>
+        <div class="cardGame">
+          <div class='displayInfo'>
+            <p>Genre: ${genre}</p>
+            <p>Released: ${article.released}</p>
+            <p>Rating: ${article.rating}/5 - ${article.ratings_count} votes</p>
           </div>
-        </a>
+          <img class="fit-picture"src="${article.background_image}"
+          alt="Grapefruit slice atop a pile of other slices">
+          <h1>${article.name}</h1>
+          <div class='platLogo'>${logo}</div>
+        </div>
+      </a>
           `;
       })
 

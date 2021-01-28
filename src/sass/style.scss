@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   background-color: #191919;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 *::before,
@@ -18,7 +19,34 @@ body {
 }
 a {
   text-decoration: none;
+}*
+//******************************
+//      SearchBar
+//******************************
+.wrapper {
+  position: relative;
+  display: flex;
+  min-width: 100px;
 }
+.form img {
+  position: absolute;
+  background-image: url('../images/search.svg');
+  height: 10px;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+}
+#searchBar {
+  border: 1px solid white;
+  color: #fff;
+    border-radius: 20px;
+    height: 40px;
+    width: 100%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color:black;
+}
+
 //******************************
 //      Select Styles
 //******************************
@@ -26,7 +54,7 @@ a {
 select {
   background-color: #d20a32;
   padding: 0 1em 0 0;
-  margin:30px ;
+  margin: 30px 0px;
   width: 220px;
   height: 50px;
   font-size: 18px;
@@ -54,8 +82,7 @@ select {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 30px;
+  align-items: flex-start;
   width: 300px;
   color: #fff;
     img {
@@ -64,38 +91,60 @@ select {
       object-fit: cover;
     }
     h1 {
-      margin: 15px 0;
+      margin-top: 8px;
+      padding:10px;
+      font-size: 25px;
     }
-
     .platLogo {
       display: flex;
+      margin-top: 5px;
+      padding:10px;
     }
     .displayInfo {
       position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      padding:10px;
       width: 300px;
       height: 200px;
-      font-size: 20px;
+      font-size: 25px;
       color: #fff;
       left: 0;
       top: 0;
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateY(-50px);
       transition-duration: 1.2s;
+      p {
+        margin: 10px 0
+      }
     }
     &:hover > .displayInfo {
       opacity: 2;
-      transform: translateX(0);
+      transform: translateY(0);
       transition-duration: 1.2s;
     }
 
     &:hover > img {
-      opacity: 1;
+      opacity: 0.2;
       transition-duration: 1.2s;
     }
+}
+
+//******************************
+//      NAVBAR Style
+//******************************
+.btnMoreContent {
+  background-color: #d20a32;
+  color: #fff;
+  height: 50px;
+  width: 150px;
+  padding:10;
+  margin: 20px 0;
+  border-radius: 5px;
+  font-size: 18px;
+  
 }
 
 //******************************
@@ -108,7 +157,7 @@ select {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  
 }
 
 
@@ -118,7 +167,6 @@ select {
     text-decoration: none;
     font-size: 45px;
     font-weight: bold;
-
   }
 }
 
@@ -162,4 +210,3 @@ select {
   background-image: url('../images/mobile.svg');
   background-repeat: no-repeat;
 }
-
