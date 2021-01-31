@@ -67,7 +67,7 @@ const PageList = (argument = "") => {
           <span class="focus"></span>
           </select>
           `
-
+          
           document.querySelector('.platformSelection').addEventListener('change', (event) => platformSelect(event));
           document.querySelector(".addMoreContent").innerHTML = `
               <button class='btnMoreContent'>More Content</button>

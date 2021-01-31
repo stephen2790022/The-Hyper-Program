@@ -13,30 +13,38 @@
 .container {
   width: 90%;
   margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
   text-decoration: none;
 }
 
-* .wrapper {
+.wrapper {
   border: 1px solid #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   min-width: 100px;
+  background-color: black;
 }
 
 .search-icon {
   background-image: url(images/48aa76f4f39e7a082a9b4da8104176aa.svg);
   height: 20px;
   width: 20px;
+  background-color: black;
 }
 
 .btn {
   border: none;
   margin: 0 7px 0 20px;
+  background-color: black;
 }
 
 .btn:focus {
@@ -55,6 +63,7 @@ a {
 }
 
 .welcome {
+  width: 90%;
   margin: 40px 0;
   color: #fff;
 }
@@ -69,7 +78,7 @@ a {
 select {
   background-color: #d20a32;
   padding: 0 1em 0 0;
-  margin: 30px 0px;
+  margin: 0 auto;
   width: 220px;
   height: 50px;
   font-size: 18px;
@@ -78,10 +87,16 @@ select {
   color: #fff;
 }
 
+.displayPlatformSelect {
+  width: 90%;
+}
+
 .page-list .articles {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .cardGame {
@@ -89,12 +104,13 @@ select {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 300px;
+  width: 400px;
+  margin: 18px 30px 30px 0;
   color: #fff;
 }
 .cardGame img {
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   object-fit: cover;
 }
 .cardGame h1 {
@@ -113,10 +129,10 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 10px;
-  width: 300px;
+  padding: 15px;
+  width: 400px;
   height: 200px;
-  font-size: 25px;
+  font-size: 32px;
   color: #fff;
   left: 0;
   top: 0;
@@ -125,7 +141,7 @@ select {
   transition-duration: 1.2s;
 }
 .cardGame .displayInfo p {
-  margin: 5px 0;
+  margin: 15px 0 0 0;
 }
 .cardGame:hover > .displayInfo {
   opacity: 2;
@@ -221,8 +237,25 @@ select {
   align-items: flex-start;
   margin-top: 50px;
 }
+.content #gameResum {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.content #gameResum h2 {
+  margin: 20px 0;
+  font-size: 30px;
+}
+.content #gameResum {
+  font-size: 20px;
+}
+.content .firstBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 .content .displayTitleVotes {
-  height: 100px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -234,9 +267,10 @@ select {
   color: #d20a32;
   font-size: 30px;
 }
-.content span {
+.content .spanTitle {
   font-weight: bold;
   font-size: 25px;
+  margin: 0 0 20px 0;
 }
 .content .package {
   width: 100%;
@@ -310,6 +344,7 @@ select {
 }
 .content .youtubeImage .title {
   font-size: 25px;
+  margin: 30px 0 0 30px;
 }
 .content .youtubeImage .title p {
   margin: 30px 0;
@@ -344,4 +379,13 @@ select {
 
 video {
   width: 100%;
+}
+
+.foot {
+  background: #ccc;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-top: 50px;
+  height: 50px;
 }

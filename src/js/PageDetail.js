@@ -10,7 +10,7 @@ const PageDetail = (argument) => {
       fetch(`${finalURL}`)
         .then((response) => response.json())
         .then((response) => {
-          console.log(response )
+          console.log(response)
           let name = response.name;
           let description = response.description;
           let released = response.released;
@@ -54,13 +54,13 @@ const PageDetail = (argument) => {
                 `
               })
             })
-            
+
           fetch(`https://api.rawg.io/api/games/${response.id}/youtube?page=1&page_size=4`)
             .then((response) => response.json())
-            .then((response) => {  
-                       
+            .then((response) => {
+
               response.results.forEach((youtubeVideo, index) => {
-           
+
                 if (index == 0) {
                   document.querySelector('.youtubeImage').innerHTML += `
                   <img class="#" src="${youtubeVideo.thumbnails.high.url}">
@@ -81,24 +81,24 @@ const PageDetail = (argument) => {
                     </div>
                   </a>
                   `
-                }     
+                }
               })
             })
 
 
-            let logo = '';
-            response.parent_platforms.forEach((support) => {
-             logo +=  `<p class="${support.platform.name}"></p>`
-            });
-            let genree = '';
-            response.genres.forEach((genre) => {
-              genree = genre.name
-            })
-            fetch(`https://api.rawg.io/api/games/${response.id}/suggested`)
-              .then((response) => response.json())
-              .then((response) => {
-                response.results.forEach((suggested) => {
-                  document.querySelector('.similarGame').innerHTML += `
+          let logo = '';
+          response.parent_platforms.forEach((support) => {
+            logo += `<p class="${support.platform.name}"></p>`
+          });
+          let genree = '';
+          response.genres.forEach((genre) => {
+            genree = genre.name
+          })
+          fetch(`https://api.rawg.io/api/games/${response.id}/suggested`)
+            .then((response) => response.json())
+            .then((response) => {
+              response.results.forEach((suggested) => {
+                document.querySelector('.similarGame').innerHTML += `
                   <a href = "#pagedetail/${suggested.id}" id='linkCard'>
                   <div class="cardGame">
                     <div class='displayInfo'>
@@ -113,8 +113,8 @@ const PageDetail = (argument) => {
                   </div>
                 </a>
                   `
-                })
               })
+            })
 
 
           document.querySelector(".addJumbotron").innerHTML = `
@@ -123,22 +123,26 @@ const PageDetail = (argument) => {
           document.querySelector("#pageContent").innerHTML = `
           </div>
           <section class="content">
-            <div class='displayTitleVotes'>
-              <h1 id='description'>${name},</h1>
-              <p>${raiting}/5 - ${votes} votes</p>
-            </div>
-
-            <p ><span>Resum:</span><br>${description}</p>
-            <div class="package">
-              <p><span>Released:</span><br>${released}</p>
-              <p><span>Developer:</span><br>${developerName}</p>
-              <p><span>Platform:</span><br>${platform}</p>
-              <p><span>Publisher:</span><br>${publisher}</p>
-            </div>
-            <div class="morePackage">
-              <p><span>Genre:</span><br>${genre}</p>
-              <p class='tags'><span>Tags:</span><br>${tags}</p>
-            </div>
+            <section class='firstBlock'>
+              <div class='displayTitleVotes'>
+                <h1 id='description'>${name},</h1>
+                <p>${raiting}/5 - ${votes} votes</p>
+              </div>
+              <div id='gameResum'>
+                <h2>Resum,</h2>
+                <p >${description}</p>
+              </div>
+                <div class="package">
+                <p><span class='spanTitle' >Released:</span><br>${released}</p>
+                <p><span class='spanTitle'>Developer:</span><br>${developerName}</p>
+                <p><span class='spanTitle'>Platform:</span><br>${platform}</p>
+                <p><span class='spanTitle'>Publisher:</span><br>${publisher}</p>
+              </div>
+              <div class="morePackage">
+                <p><span class='spanTitle'>Genre:</span><br>${genre}</p>
+                <p class='tags'><span class='spanTitle'>Tags:</span><br>${tags}</p>
+              </div>
+              </section>
             <div class="store">
               <h1>BUY</h1>
               <p>${stores} </p>
@@ -152,19 +156,21 @@ const PageDetail = (argument) => {
             <h1 id='screenshottitle'>SCREENSHOTS</h1>
             <div class='screenShot'>
             </div>
-
-            <h1 id='youtubeH'>YOUTUBE</h1>   
-            <div class='youtubeImage'>
+            <div id="allYoutubeContent">
+              <h1 id='youtubeH'>YOUTUBE</h1>   
+              <div class='youtubeImage'>
+              </div>
+              <div class='youtubeVideo'>
+              </div>
             </div>
-            <div class='youtubeVideo'>
-            </div>
-
             <h1 id='similarH'>SIMILAR GAME</h1>
             <div class='similarGame'>
             </div>
 
               
-            
+            <footer class='container'>
+
+            </footer>
               
             
           </section>

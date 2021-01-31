@@ -16,13 +16,18 @@
 .container {
   width: 90%;
   margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
   text-decoration: none;
 }
 
-*//******************************
+//******************************
 //      SearchBar
 //******************************
 .wrapper {
@@ -32,17 +37,20 @@ a {
   flex-direction: row-reverse;
   justify-content: space-between;
   min-width: 100px;
+  background-color: black;
 }
 
 .search-icon {
   background-image: url('../images/search.svg');
   height: 20px;
   width: 20px;
+  background-color: black;
 }
 
 .btn {
   border: none;
   margin:0 7px 0 20px;
+  background-color: black;
 }
 
 .btn:focus {
@@ -65,6 +73,7 @@ a {
 //      WELCOME
 //******************************
 .welcome {
+  width: 90%;
   margin: 40px 0;
   color: #fff;
   h1 {
@@ -82,7 +91,7 @@ a {
 select {
   background-color: #d20a32;
   padding: 0 1em 0 0;
-  margin: 30px 0px;
+  margin: 0 auto;
   width: 220px;
   height: 50px;
   font-size: 18px;
@@ -92,14 +101,18 @@ select {
   color: #fff;
 }
 
-
+.displayPlatformSelect {
+  width: 90%
+}
 //******************************
 //      ARTICLES DISPLAY
 //******************************
 .page-list .articles {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
 }
 
 //******************************
@@ -111,12 +124,13 @@ select {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 300px;
+  width: 400px;
+  margin: 18px 30px 30px 0;
   color: #fff;
 
   img {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     object-fit: cover;
   }
 
@@ -138,10 +152,11 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 10px;
-    width: 300px;
+    padding: 15px;
+    width: 400px;
     height: 200px;
-    font-size: 25px;
+    font-size: 32px;
+    
     color: #fff;
     left: 0;
     top: 0;
@@ -150,7 +165,8 @@ select {
     transition-duration: 1.2s;
 
     p {
-      margin: 5px 0;
+      margin: 15px 0 0 0;
+      
     }
   }
 
@@ -273,13 +289,32 @@ $titleColor: #d20a32;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 50px;
-
+  #gameResum {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+  #gameResum h2 {
+    margin: 20px 0; 
+    font-size: 30px;
+   }
+   #gameResum {
+     font-size: 20px;
+   }
+  .firstBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start ;
+    flex-wrap: wrap;
+  }
   .displayTitleVotes {
-    height: 100px;
+    
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    
     h1 {
       font-size: 60px;
     }
@@ -290,9 +325,10 @@ $titleColor: #d20a32;
     }
   }
 
-  span {
+  .spanTitle {
     font-weight: bold;
     font-size: 25px;
+    margin: 0 0 20px 0;
   }
 
 
@@ -373,17 +409,19 @@ $titleColor: #d20a32;
 
   .youtubeImage {
     width: 100%;
+    
     display: flex;
     justify-content: space-between;
 
     img {
       width: 600px;
-      ;
       height: 400px;
     }
 
     .title {
       font-size: 25px;
+      margin: 30px 0 0 30px;
+
       p {
         margin: 30px 0;
         color: $titleColor;
@@ -430,3 +468,22 @@ $titleColor: #d20a32;
 video {
   width: 100%;
 }
+
+//******************************
+// FOOTER
+//******************************
+.foot{
+
+  background:#ccc;
+  
+  position:absolute;
+  
+  bottom:0;
+  
+  width:100%;
+  
+  padding-top:50px;
+  
+  height:50px;
+  
+  }
