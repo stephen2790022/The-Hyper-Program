@@ -1,3 +1,4 @@
+const api_key = '22fccb5d621a4fbdadc7eb819fab1426'
 const PageDetail = (argument) => {
   const preparePage = () => {
     document.querySelector(".welcome").innerHTML = '';
@@ -5,7 +6,7 @@ const PageDetail = (argument) => {
     document.querySelector(".addMoreContent").innerHTML = '';
     let cleanedArgument = argument.replace(/\s+/g, "-");
     const fetchGame = (url, argument) => {
-      let finalURL = url + argument;
+      let finalURL = url + argument + `/key=${api_key}`;
 
       fetch(`${finalURL}`)
         .then((response) => response.json())
@@ -45,7 +46,7 @@ const PageDetail = (argument) => {
 
           let video = response.clip.clip;
           let slug;
-          fetch(`https://api.rawg.io/api/games/${response.slug}/screenshots`)
+          fetch(`https://api.rawg.io/api/games/${response.slug}/screenshots?key=${api_key}`)
             .then((response) => response.json())
             .then((response) => {
               response.results.forEach((screenshot) => {
@@ -55,7 +56,7 @@ const PageDetail = (argument) => {
               })
             })
 
-          fetch(`https://api.rawg.io/api/games/${response.id}/youtube?page=1&page_size=4`)
+          fetch(`https://api.rawg.io/api/games/${response.id}/youtube?page=1&page_size=4&key=${api_key}`)
             .then((response) => response.json())
             .then((response) => {
 
@@ -72,7 +73,7 @@ const PageDetail = (argument) => {
                   `
                 } else {
                   document.querySelector('.youtubeVideo').innerHTML += `
-                  <a href = "https://www.youtube.com/watch?v=${youtubeVideo.external_id} ">
+                  <a href = "https://www.youtube.com/watch?v=${youtubeVideo.external_id}&key=${api_key} ">
                     <div class="youtubeCard">
                       <img class="cardImage" src="${youtubeVideo.thumbnails.high.url}"
                       alt="Grapefruit slice atop a pile of other slices">
@@ -94,7 +95,7 @@ const PageDetail = (argument) => {
           response.genres.forEach((genre) => {
             genree = genre.name
           })
-          fetch(`https://api.rawg.io/api/games/${response.id}/suggested`)
+          fetch(`https://api.rawg.io/api/games/${response.id}/suggested?key=${api_key}`)
             .then((response) => response.json())
             .then((response) => {
               response.results.forEach((suggested) => {
@@ -177,7 +178,7 @@ const PageDetail = (argument) => {
           `
         });
     };
-    fetchGame("https://api.rawg.io/api/games/", cleanedArgument);
+    fetchGame(`https://api.rawg.io/api/games/`, cleanedArgument);
   };
   preparePage();
 };

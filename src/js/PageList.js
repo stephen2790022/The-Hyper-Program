@@ -1,6 +1,6 @@
 let nextPage;
 let count = 0;
-
+const api_key = '22fccb5d621a4fbdadc7eb819fab1426'
 const PageList = (argument = "") => {
   document.querySelector(".addJumbotron").innerHTML= ''
   const preparePage = () => {
@@ -81,7 +81,7 @@ const PageList = (argument = "") => {
         });
     };
 
-    fetchList("https://api.rawg.io/api/games?page=1&page_size=9&", cleanedArgument);
+    fetchList(` ?page=1&page_size=9&key=${api_key}&`, cleanedArgument);
   };
 
   const render = () => {
@@ -139,12 +139,12 @@ const platformSelect = (event) => {
   let pageArgument = path[1] || "";
   const cleanedArgument = pageArgument.replace(/\s+/g, "-");
   let selection = document.querySelector('.platformSelection').value;
-  let url = "https://api.rawg.io/api/games?page=1&page_size=9&";
+  let url = `https://api.rawg.io/api/games?page=1&page_size=9&key=${api_key}&`;
   let finalURL = url;
   if (cleanedArgument) {
     finalURL = url + `parent_platforms=${selection}&search=` + cleanedArgument
   } else {
-    finalURL = url + `parent_platforms=${selection}&dates=2021-01-01,2022-01-01&ordering=-added`
+    finalURL = url + `parent_platforms=${selection}&dates=2021-01-01,2022-01-01&ordering=-added&&key=${api_key}`
   }
 
   fetch(`${finalURL}`)
